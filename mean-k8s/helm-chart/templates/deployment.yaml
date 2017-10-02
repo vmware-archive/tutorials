@@ -1,0 +1,59 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ template "fullname" . }}
+  labels:
+   app: {{ template "fullname" . }}
+   chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+   release: "{{ .Release.Name }}"
+   heritage: "{{ .Release.Service }}"
+spec:
+  replicas: {{ .Values.replicaCount }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "fullname" . }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        env:
+        - name: MONGODB_HOST
+          value: {{ template "mongodb.fullname" . }}
+        - name: MONGODB_PORT
+          value: "27017"
+        - name: MONGODB_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ template "mongodb.fullname" . }}
+              key: mongodb-root-password
+        - name: MONGODB_USERNAME
+          value: {{ default "" .Values.mongodb.mongodbUsername | quote }}
+        - name: MONGODB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ template "mongodb.fullname" . }}
+              key: mongodb-password
+        - name: MONGODB_DATABASE
+          value: {{ default "" .Values.mongodb.mongodbDatabase | quote }}
+        ports:
+        - name: internalport
+          containerPort: {{ .Values.service.internalPort }}
+        livenessProbe:
+          httpGet:
+            path: /
+            port: {{ .Values.service.internalPort }}
+          initialDelaySeconds: 180
+          periodSeconds: 5
+          timeoutSeconds: 5
+          failureThreshold: 10
+        readinessProbe:
+          httpGet:
+            path: /
+            port: {{ .Values.service.internalPort }}
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 1
+        resources:
+{{ toYaml .Values.resources | indent 12 }}

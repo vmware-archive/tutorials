@@ -1,0 +1,68 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ template "fullname" . }}-phpfpm
+  labels:
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
+spec:
+  replicas: {{ .Values.replicaCount }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "fullname" . }}-phpfpm
+    spec:
+      containers:
+      - name: {{ template "fullname" . }}-phpfpm
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - containerPort: {{ .Values.phpfpmService.phpfpmPort }}
+        resources:
+{{ toYaml .Values.resources | indent 12 }}
+        readinessProbe:
+          tcpSocket:
+            port: {{ .Values.phpfpmService.phpfpmPort }}
+          initialDelaySeconds: 10
+          timeoutSeconds: 5
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ template "fullname" . }}-nginx
+  labels:
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
+spec:
+  replicas: {{ .Values.replicaCount }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "fullname" . }}-nginx
+    spec:
+      containers:
+      - name: {{ template "fullname" . }}-nginx
+        image: "bitnami/nginx:latest"
+        imagePullPolicy: {{ default "" .Values.image.pullPolicy | quote }}
+        ports:
+        - name: http
+          containerPort: 80
+        - name: https
+          containerPort: 443
+        livenessProbe:
+          httpGet:
+            path: /
+            port: http
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /
+            port: http
+          initialDelaySeconds: 5
+          timeoutSeconds: 1
+        volumeMounts:
+        - name: nginx-config
+          mountPath: /bitnami/nginx/conf/vhosts
+      volumes:
+      - name: nginx-config
+        configMap: 
+          name: {{ template "fullname" . }}

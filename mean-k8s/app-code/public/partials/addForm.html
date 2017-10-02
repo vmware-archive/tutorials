@@ -1,0 +1,69 @@
+<!-- "Join Team" (Post) Form -->
+<div class="col-md-5">
+
+    <!-- Creates Main Panel -->
+    <div class="panel panel-default">
+
+        <!-- Panel Title -->
+        <div class="panel-heading">
+            <h2 class="panel-title text-center">Join the Scotch Team! <span class="glyphicon glyphicon-map-marker"></span></h2>
+        </div>
+
+        <!-- Panel Body -->
+        <div class="panel-body">
+
+            <!-- Creates Form (novalidate disables HTML validation, Angular will control) -->
+            <form name ="addForm" novalidate>
+
+                <!-- Text Boxes and Other User Inputs. Note ng-model binds the values to Angular $scope -->
+                <div class="form-group">
+                    <label for="username">Username <span class="badge">All fields required</span></label>
+                    <input type="text" class="form-control" id="username" placeholder="OldandGold" ng-model="formData.username" required>
+                </div>
+                <label class="radio control-label">Gender</label>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios" id="radiomale" value="Male" ng-model="formData.gender">
+                        Male
+                    </label>
+                </div>
+                <div class="radio" required>
+                    <label>
+                        <input type="radio" name="optionsRadios" id="radiofemale" value="Female" ng-model="formData.gender">
+                        Female
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios" id="radioother" value="What's it to ya?" ng-model="formData.gender">
+                        What's it to ya?
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" class="form-control" id="age" placeholder="72" ng-model="formData.age" required>
+                </div>
+                <div class="form-group">
+                    <label for="language">Favorite Language</label>
+                    <input type="text" class="form-control" id="language" placeholder="Fortran" ng-model="formData.favlang" required>
+                </div>
+                <div class="form-group">
+                    <label for="latitude">Latitude</label>
+                    <input type="text" class="form-control" id="latitude" value="39.500" ng-model="formData.latitude" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="longitude">Longitude</label>
+                    <input type="text" class="form-control" id="longitude" value="-98.350" ng-model="formData.longitude" readonly>
+                </div>
+                <div class="form-group">
+                    <!-- Note RefreshLoc button tied to addCtrl. This requests a refresh of the HTML5 verified location. -->
+                    <label for="verified">HTML5 Verified Location? <span><button ng-click="refreshLoc()" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-refresh"></span></button></span></label>
+                    <input type="text" class="form-control" id="verified" placeholder= "Nope (Thanks for spamming my map...)" ng-model="formData.htmlverified" readonly>
+                </div>
+
+                <!-- Submit button. Note that its tied to createUser() function from addCtrl. Also note ng-disabled logic which prevents early submits.  -->
+                <button type="submit" class="btn btn-danger btn-block" ng-click="createUser()" ng-disabled="addForm.$invalid">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

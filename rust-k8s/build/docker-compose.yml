@@ -1,0 +1,12 @@
+version: '2'
+services:
+  compile:
+    build: .
+    volumes:
+      - './app-code:/app-code'
+      - './binary:/binary'
+volumes:
+  app-code:
+    driver: local
+  binary:
+    driver: local

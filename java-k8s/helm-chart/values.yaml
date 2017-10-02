@@ -1,0 +1,23 @@
+# Default values for java-app.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+replicaCount: 1
+image:
+  repository: mdhont/java-app
+  tag: 0.1.0
+  pullPolicy: IfNotPresent
+service:
+  name: tomcat
+  type: NodePort
+  externalPort: 8080
+  internalPort: 8080
+
+
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi

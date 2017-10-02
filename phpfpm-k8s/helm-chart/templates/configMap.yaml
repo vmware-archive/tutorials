@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "fullname" . }}
+  labels:
+    app: {{ template "fullname" . }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
+data:
+  nginx.conf: |-
+    server {
+      listen 0.0.0.0:80;
+      root /app;
+      location / {
+        index index.html index.php;
+      }
+      location ~ \.php$ {
+        fastcgi_pass phpfpm-php-app-phpfpm:9000;
+        fastcgi_index index.php;
+        include fastcgi.conf;
+      }
+    }

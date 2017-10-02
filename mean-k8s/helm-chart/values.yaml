@@ -1,0 +1,45 @@
+# Default values for mean-k8s.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+replicaCount: 1
+image:
+  repository: bitnami/my-mean-app
+  tag: 0.1.0
+  pullPolicy: IfNotPresent
+service:
+  name: mean-k8s
+  type: NodePort
+  externalPort: 3000
+  internalPort: 3000
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+mongodb:
+  ## MongoDB admin password
+  ## ref: https://github.com/bitnami/bitnami-docker-MongoDB/blob/master/README.md#setting-the-root-password-on-first-run
+  mongodbRootPassword: L8zLskMV+SY=
+
+  ## MongoDB custom user and database
+  ## ref: https://github.com/bitnami/bitnami-docker-mongodb/blob/master/README.md#creating-a-user-and-database-on-first-run
+  ##
+  mongodbUsername: meanmapsapp
+  mongodbPassword: 6Z0VQHTrQqg
+  mongodbDatabase: meanmapsapp
+
+  ## Enable persistence using Persistent Volume Claims
+  ## ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
+  ##
+  persistence:
+    enabled: true
+    ## If defined, volume.beta.kubernetes.io/storage-class: <storageClass>
+    ## Default: volume.alpha.kubernetes.io/storage-class: default
+    ##
+    # storageClass:
+    accessMode: ReadWriteOnce
+    size: 8Gi
+

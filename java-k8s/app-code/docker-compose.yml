@@ -1,0 +1,29 @@
+version: '2.1'
+
+networks:
+  app-tier:
+    driver: bridge
+
+services:
+  tomcat:
+    image: 'mdhont/java-app:0.1.0'
+    ports:
+      - '8080:8080' 
+    networks:
+      - app-tier
+    depends_on:
+      jhipster-mariadb:
+        condition: service_healthy
+  jhipster-mariadb:
+    image: bitnami/mariadb:latest
+    environment:
+        - MARIADB_USER=jhipster
+        - MARIADB_PASSWORD=jhipster
+        - MARIADB_DATABASE=jhipsterSampleApplication
+        - ALLOW_EMPTY_PASSWORD=yes
+    healthcheck:
+      test: "/opt/bitnami/mariadb/bin/mysql -u jhipster -pjhipster -e 'SHOW DATABASES;'"
+      interval: 5s
+      retries: 20
+    networks:
+      - app-tier

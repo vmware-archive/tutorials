@@ -1,0 +1,3 @@
+[submodule "app-code"]
+	path = app-code
+	url = https://github.com/scotch-io/mean-google-maps.git

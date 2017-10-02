@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "fullname" . }}-nginx
+  labels:
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
+spec:
+  type: {{ .Values.nginxService.type }}
+  ports:
+  - port: {{ .Values.nginxService.externalPort }}
+    targetPort: {{ .Values.nginxService.internalPort }}
+    protocol: TCP
+    name: {{ .Values.nginxService.name }}
+  selector:
+    app: {{ template "fullname" . }}-nginx

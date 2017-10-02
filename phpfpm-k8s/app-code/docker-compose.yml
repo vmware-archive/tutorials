@@ -1,0 +1,31 @@
+version: '2'
+
+networks:
+  app-tier:
+    driver: bridge
+
+services:
+  phpfpm:
+    image: mdhont/phpfpm-app:0.1.0
+    networks:
+      - app-tier
+  nginx:
+    image: 'bitnami/nginx:1.12.0-r2'
+    depends_on:
+      - phpfpm
+    networks:
+      - app-tier
+    ports:
+      - '8080:80'
+      - '443:443'
+    volumes:
+      - ./vhosts:/bitnami/nginx/conf/vhosts
+  mariadb:
+    image: bitnami/mariadb:latest
+    environment:
+        - MARIADB_USER=mini
+        - MARIADB_PASSWORD=mini
+        - MARIADB_DATABASE=mini
+        - ALLOW_EMPTY_PASSWORD=yes
+    networks:
+      - app-tier

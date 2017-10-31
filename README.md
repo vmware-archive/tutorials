@@ -1,14 +1,14 @@
 Bitnami Tutorials
 -----------------
-Here you can find code related to Bitnami's tutorials 
+Here you can find code related to Bitnami's tutorials.
 
 How to use
 ----------
-Each tutorial is identified by a keyword in order to don't  messing up with long directory names
+Each tutorial is identified by a keyword in order to avoid using long directory names.
 
-1. Clone this repository: `git clone https://github.com/bitnami/tutorials`
-2. Go to the directory where the code lives. See [README.md] to find out proper directory
-3. Finally, enter the directory as usual
+1. Clone this repository: `git clone https://github.com/bitnami/tutorials`.
+2. Navigate to the directory where the code lives. See [README.md] for the index.
+3. Follow the steps in the corresponding tutorial to use the code.
 
 Index of articles
 -----------------
@@ -24,4 +24,4 @@ Index of articles
 |rust-k8s    | Deploy A Rust Application On Kubernetes With Helm                             | https://docs.bitnami.com/kubernetes/how-to/deploy-rust-application-kubernetes-helm  | 
 |swift-k8s    | Deploy A Swift Application On Kubernetes With Helm                             | https://docs.bitnami.com/kubernetes/how-to/deploy-swift-application-kubernetes-helm  | 
 |multistage-docker    | Optimize Your Docker Images with Multi-Stage Builds and Bitnami Containers | https://docs.bitnami.com/containers/how-to/optimize-docker-images-multistage-builds/  | 
-
+|java-stacksmith    | Package and Deploy Applications on AWS with Bitnami Stacksmith |   | 

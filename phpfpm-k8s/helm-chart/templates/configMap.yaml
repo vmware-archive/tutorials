@@ -10,7 +10,7 @@ metadata:
 data:
   nginx.conf: |-
     server {
-      listen 0.0.0.0:80;
+      listen 0.0.0.0:{{ .Values.nginxService.internalPort }};
       root /app;
       location / {
         index index.html index.php;

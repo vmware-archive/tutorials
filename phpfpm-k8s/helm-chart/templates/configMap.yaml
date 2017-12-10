@@ -16,7 +16,7 @@ data:
         index index.html index.php;
       }
       location ~ \.php$ {
-        fastcgi_pass phpfpm-php-app-phpfpm:9000;
+        fastcgi_pass {{ template "fullname" . }}-phpfpm:9000;
         fastcgi_index index.php;
         include fastcgi.conf;
       }

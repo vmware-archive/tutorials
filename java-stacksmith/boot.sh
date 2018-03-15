@@ -5,6 +5,9 @@ set -euo pipefail
 
 readonly CONF=WEB-INF/classes/database.properties
 
+# change to directory where DaleCo WAR file was unpacked
+cd /var/lib/tomcat/webapps/DaleCo
+
 echo "current directory: " $PWD
 echo "writing to file: " $CONF
 
@@ -23,6 +26,3 @@ echo "password=${DATABASE_PASSWORD}" >> $CONF
 # DATABASE_HOST: The hostname to use to connect to the database
 # DATABASE_USER: The root username for the database. You can connect as this user and create other users if you require
 # DATABASE_PASSWORD: The password for the root database user
-
-
-

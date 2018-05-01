@@ -1,1 +1,3 @@
 *.*~
+java-springboot-stacksmith/target/
+!java-springboot-stacksmith/target/customerapp-1.0.0.war

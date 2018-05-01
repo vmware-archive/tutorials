@@ -24,4 +24,5 @@ Index of articles
 |rust-k8s    | Deploy A Rust Application On Kubernetes With Helm                             | https://docs.bitnami.com/kubernetes/how-to/deploy-rust-application-kubernetes-helm  | 
 |swift-k8s    | Deploy A Swift Application On Kubernetes With Helm                             | https://docs.bitnami.com/kubernetes/how-to/deploy-swift-application-kubernetes-helm  | 
 |multistage-docker    | Optimize Your Docker Images with Multi-Stage Builds and Bitnami Containers | https://docs.bitnami.com/containers/how-to/optimize-docker-images-multistage-builds/  | 
-|java-stacksmith    | Package and Deploy Applications on AWS with Bitnami Stacksmith |   | 
+|java-stacksmith    | Package and Deploy Applications on AWS with Bitnami Stacksmith | https://stacksmith.bitnami.com/support/quickstart-aws   |
+|java-springboot-stacksmith    | Package and Deploy Applications on Azure with Bitnami Stacksmith | https://stacksmith.bitnami.com/support/quickstart-azure   |

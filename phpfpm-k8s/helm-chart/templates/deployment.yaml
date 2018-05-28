@@ -46,7 +46,7 @@ spec:
         - name: http
           containerPort: {{ .Values.nginxService.internalPort }}
         - name: https
-          containerPort: 443
+          containerPort: 8443
         livenessProbe:
           httpGet:
             path: /
@@ -65,4 +65,4 @@ spec:
       volumes:
       - name: nginx-config
         configMap: 
-          name: {{ template "fullname" . }}
+          name: {{ template "fullname" . }}             

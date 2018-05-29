@@ -6,7 +6,7 @@ networks:
 
 services:
   phpfpm:
-    image: mdhont/phpfpm-app:0.1.0
+    image: USERNAME/phpfpm-app:0.1.0
     networks:
       - app-tier
   nginx:
@@ -16,7 +16,7 @@ services:
     networks:
       - app-tier
     ports:
-      - '8080:80'
+      - '80:80'
       - '443:443'
     volumes:
       - ./vhosts:/bitnami/nginx/conf/vhosts

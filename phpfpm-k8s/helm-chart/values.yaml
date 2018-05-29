@@ -10,7 +10,7 @@ nginxService:
   name: nginx
   type: NodePort
   externalPort: 80
-  internalPort: 80
+  internalPort: 8080
 phpfpmService:
   name: phpfpm
   type: NodePort
@@ -31,7 +31,7 @@ ingress:
 config:
   nginx.conf: |-
     server {
-      listen 0.0.0.0:80;
+      listen 0.0.0.0:8080;
       root /app;
       location / {
         index index.html index.php;

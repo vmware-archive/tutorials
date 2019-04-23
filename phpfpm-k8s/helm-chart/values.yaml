@@ -34,7 +34,7 @@ config:
       listen 0.0.0.0:8080;
       root /app;
       location / {
-        index index.html index.php;
+        try_files $uri $uri/index.php;
       }
       location ~ \.php$ {
         fastcgi_pass phpfpm-php-app-phpfpm:9000;

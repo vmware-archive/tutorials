@@ -13,7 +13,7 @@ data:
       listen 0.0.0.0:{{ .Values.nginxService.internalPort }};
       root /app;
       location / {
-        index index.html index.php;
+        try_files $uri $uri/index.php;
       }
       location ~ \.php$ {
         fastcgi_pass {{ template "fullname" . }}-phpfpm:9000;

@@ -29,7 +29,7 @@ These are the values that you will use to create the `docker-compose.yml` in the
 
 2) To generate a WAR package instead of a JAR file, it is necessary to perform the changes below to the `pom.xml` file: 
 
-```
+```bash
 diff --git a/complete/pom.xml b/complete/pom.xml
 index 0f2080c..e51caeb 100644
 --- a/complete/pom.xml

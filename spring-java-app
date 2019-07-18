@@ -1,0 +1,1 @@
+In this repo, you will find all the files that you need to package a sample Spring Boot application that uses the Bitnami MariaDB container image as a database for later deploy it using the Bitnami Tomcat container image. 

@@ -19,7 +19,7 @@ In this repository, you will find the resulting WAR package from cloning the abo
 
 1) Replace the current database connection with the MariaDB one by editing the `src/main/resources/application.properties`. The resulting content should look like as follows:
 
-```
+```bash
 spring.jpa.hibernate.ddl-auto=create
 spring.datasource.url=jdbc:mysql://mariadb:3306/db_example
 spring.datasource.username=springuser
@@ -29,7 +29,7 @@ These are the values that you will use to create the `docker-compose.yml` in the
 
 2) To generate a WAR package instead of a JAR file, it is necessary to perform the changes below to the `pom.xml` file: 
 
-```
+```bash
 diff --git a/complete/pom.xml b/complete/pom.xml
 index 0f2080c..e51caeb 100644
 --- a/complete/pom.xml
@@ -59,7 +59,7 @@ index 0f2080c..e51caeb 100644
 
 3) Refer the embedded servlet container in the application file by editing the `src/main/java/hello/Application.java` as shown below:
 
-```
+```bash
 diff --git a/complete/src/main/java/hello/Application.java b/complete/src/main/java/hello/Application.java
 index 5abd411..7710721 100644
 --- a/complete/src/main/java/hello/Application.java

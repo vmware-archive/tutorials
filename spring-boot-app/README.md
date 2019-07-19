@@ -15,7 +15,7 @@ To understand this document and to follow the [Deploy locally a Spring Boot appl
 
 # Changes done in the source code
 
-In this repository, you will find the resulting WAR package from cloning the above mentioned sample repository: https://github.com/spring-guides/gs-accessing-data-mysql, applying the changes below and running the `mvn package` command. These are the changes done to the source code explained in detail:
+In this repository, you will find the resulting WAR package from cloning the [above mentioned sample repository](https://github.com/spring-guides/gs-accessing-data-mysql) after applying the changes below and running the `mvn package` command. These are the changes done to the source code explained in detail:
 
 1) Replace the current database connection with the MariaDB one by editing the `src/main/resources/application.properties`. The resulting content should look like as follows:
 

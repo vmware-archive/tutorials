@@ -18,8 +18,6 @@ Index of articles
 |kubeless    |Get Started with Serverless Computing on Kubernetes with Minikube and Kubeless |https://docs.bitnami.com/kubernetes/how-to/get-started-serverless-computing-kubeless/ |
 |simple-node-app|Deploy a Custom Node.js Application using Bitnami Containers        | https://docs.bitnami.com/containers/how-to/deploy-custom-nodejs-app-bitnami-containers/ |
 | go-k8s     | Deploy A Go Application On Kubernetes With Helm                                | https://docs.bitnami.com/kubernetes/how-to/deploy-go-application-kubernetes-helm/    |
-|mean-k8s    | Deploy A MEAN Application On Kubernetes With Helm                             | https://docs.bitnami.com/kubernetes/how-to/deploy-mean-application-kubernetes-helm/  | 
-|java-k8s    | Deploy A Java Application On Kubernetes With Helm                             | https://docs.bitnami.com/kubernetes/how-to/deploy-java-application-kubernetes-helm/  | 
 |phpfpm-k8s  | Deploy A PHP Application On Kubernetes With Helm                             | https://docs.bitnami.com/kubernetes/how-to/deploy-php-application-kubernetes-helm/  | 
 |rust-k8s    | Deploy A Rust Application On Kubernetes With Helm                             | https://docs.bitnami.com/kubernetes/how-to/deploy-rust-application-kubernetes-helm/  | 
 |swift-k8s    | Deploy A Swift Application On Kubernetes With Helm                             | https://docs.bitnami.com/kubernetes/how-to/deploy-swift-application-kubernetes-helm/  | 

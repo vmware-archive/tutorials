@@ -1,12 +1,14 @@
 # Source code
 
-This repository uses as a sample application the one you can find in the official [Spring Guides GitHub repository](https://github.com/spring-guides/gs-accessing-data-mysql). Some of its files have been modified in order to use the [Bitnami MariaDB container image](https://github.com/bitnami/bitnami-docker-mariadb) as a database instead of the existing one and for packaging the service as a WAR file. 
+This repository includes the sample application that you need to use to follow the [Deploy locally a Spring Boot application using Bitnami containers](https://docs.bitnami.com/containers/how-to/deploy-locally-spring-boot-application-docker/) guide that you can find in the Bitnami's documentation site.
 
-See the LICENSE.code.txt file for more information on this.
+You can find that sample application in the official [Spring Guides GitHub repository](https://github.com/spring-guides/gs-accessing-data-mysql)*. Some of its files have been modified in order to use the [Bitnami MariaDB container image](https://github.com/bitnami/bitnami-docker-mariadb) as a database instead of the existing one and for packaging the service as a WAR file. 
+
+*See the LICENSE.code.txt file for more information on this.
 
 # Assumptions and prerequisites
 
-To understand this document and to follow the [Deploy locally a Spring Boot application using Bitnami containers](https://docs.bitnami.com/containers/how-to/deploy-locally-spring-boot-application-docker) tutorial is assumed that:
+To understand this document and to follow the [Deploy locally a Spring Boot application using Bitnami containers](https://docs.bitnami.com/containers/how-to/deploy-locally-spring-boot-application-docker/) tutorial is assumed that:
 
 * You have basic knowledge of [Docker](https://www.docker.com/) containers.
 * You have a Docker environment installed and configured. [Learn more about installing Docker](https://docs.docker.com/install/).
@@ -25,7 +27,7 @@ spring.datasource.url=jdbc:mysql://mariadb:3306/db_example
 spring.datasource.username=springuser
 spring.datasource.password=ThePassword
 ```
-These are the values that you will use to create the `docker-compose.yml` in the step 2 of the [Deploy locally a Spring Boot application using Bitnami containers](https://docs.bitnami.com/containers/how-to/deploy-locally-spring-boot-application-docker) tutorial. 
+These are the values that you will use to create the `docker-compose.yml` in the step 4 of the [Deploy locally a Spring Boot application using Bitnami containers](https://docs.bitnami.com/containers/how-to/deploy-locally-spring-boot-application-docker/#step-4-create-a-docker-compose-yml-file-to-configure-application-services) tutorial. 
 
 2) To generate a WAR package instead of a JAR file, it is necessary to perform the changes below to the `pom.xml` file: 
 

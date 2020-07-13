@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: {{ template "common.capabilities.deployment.apiVersion" . }}
 kind: Deployment
 metadata:
   name: {{ template "fullname" . }}-phpfpm
@@ -25,7 +25,7 @@ spec:
           initialDelaySeconds: 10
           timeoutSeconds: 5
 ---
-apiVersion: extensions/v1beta1
+apiVersion: {{ template "common.capabilities.deployment.apiVersion" . }}
 kind: Deployment
 metadata:
   name: {{ template "fullname" . }}-nginx
@@ -64,5 +64,5 @@ spec:
           mountPath: /bitnami/nginx/conf/vhosts
       volumes:
       - name: nginx-config
-        configMap: 
-          name: {{ template "fullname" . }}             
+        configMap:
+          name: {{ template "fullname" . }}

@@ -6,6 +6,9 @@ metadata:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
 spec:
   replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "fullname" . }}-phpfpm
   template:
     metadata:
       labels:
@@ -32,6 +35,9 @@ metadata:
   labels:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
 spec:
+  selector:
+    matchLabels:
+      app: {{ template "fullname" . }}-nginx
   replicas: {{ .Values.replicaCount }}
   template:
     metadata:

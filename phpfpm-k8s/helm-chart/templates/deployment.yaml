@@ -67,7 +67,7 @@ spec:
           timeoutSeconds: 1
         volumeMounts:
         - name: nginx-config
-          mountPath: /bitnami/nginx/conf/server_blocks
+          mountPath: /opt/bitnami/nginx/conf/server_blocks
       volumes:
       - name: nginx-config
         configMap:
